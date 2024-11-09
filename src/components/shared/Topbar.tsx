@@ -62,7 +62,7 @@ const Topbar = () => {
           /> */}
           <input
             type="search"
-            placeholder="ctrl + k to search"
+            placeholder="Ctrl + K"
             className="bg-transparent outline-none"
           />
 
