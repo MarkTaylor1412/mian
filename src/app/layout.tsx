@@ -20,7 +20,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html
         lang="en"
-        className={`${bodoni.variable} ${merriweather.variable} ${montserrat.variable} ${playfair.variable}`}
+        className={`${bodoni.variable} ${merriweather.variable} ${montserrat.variable} ${playfair.variable} dark`}
       >
         <body className={`${inter.className} antialiased`}>
           <Topbar />

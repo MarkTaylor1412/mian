@@ -80,4 +80,87 @@ body {
   }
 }
 
-@layer utilities {}
+@layer utilities {
+  .invert-image {
+    @apply dark:invert;
+  }
+
+  /** TYPOGRAPHY */
+  .txt-base {
+    @apply text-base font-normal;
+  }
+
+  .txt-sm {
+    @apply text-sm font-normal;
+  }
+
+  .txt-lg {
+    @apply text-lg font-normal;
+  }
+
+  .txt-xl {
+    @apply text-xl font-normal;
+  }
+
+  .txt-2xl {
+    @apply text-2xl font-normal;
+  }
+
+  .txt-3xl {
+    @apply text-3xl font-normal;
+  }
+
+  .txt-4xl {
+    @apply text-4xl font-normal;
+  }
+
+  .txt-5xl {
+    @apply text-5xl font-normal;
+  }
+
+  /** FLEX */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
+
+  .flex-end {
+    @apply flex items-center justify-end;
+  }
+
+  /** SCROLLBAR */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--secondary);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-foreground);
+  }
+
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hidden-scrollbar {
+    /* -ms-overflow-style: none; */
+    scrollbar-width: none;
+  }
+}

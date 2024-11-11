@@ -17,8 +17,8 @@ import { Input } from "../ui/input";
 
 const Topbar = () => {
   return (
-    <div className="flex h-24 w-full flex-row items-center justify-between gap-3 bg-secondary px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
-      {/* LEFT */}
+    <div className="flex h-24 w-full flex-row items-center justify-between gap-3 border-b bg-card px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+      {/* //# LEFT */}
       <div className="flex w-[20%] flex-row items-center justify-center md:hidden lg:block">
         <Link href={"/"}>
           <Image
@@ -26,12 +26,13 @@ const Topbar = () => {
             src={"/monogram-logo.svg"}
             width={200}
             height={200}
+            className="invert-image"
             priority
           />
         </Link>
       </div>
 
-      {/* CENTER */}
+      {/* //# CENTRE */}
       <div className="hidden w-full items-center justify-between text-sm md:flex">
         <ul className="flex flex-row text-foreground">
           {navbarLinks.map((link) => {
@@ -46,6 +47,7 @@ const Topbar = () => {
                     src={link.imageURL}
                     width={16}
                     height={16}
+                    className="invert-image"
                   />
 
                   <p>{link.label}</p>
@@ -56,14 +58,10 @@ const Topbar = () => {
         </ul>
 
         <div className="hidden items-center rounded-xl bg-input p-2 xl:flex">
-          {/* <Input
-            type="search"
-            placeholder="ctrl + k to search"
-          /> */}
-          <input
+          <Input
             type="search"
             placeholder="Ctrl + K"
-            className="bg-transparent outline-none"
+            className="bg-transparent"
           />
 
           <Image
@@ -71,11 +69,12 @@ const Topbar = () => {
             src={"/search.svg"}
             width={14}
             height={14}
+            className="invert-image mx-2 opacity-60"
           />
         </div>
       </div>
 
-      {/* RIGHT */}
+      {/* //# RIGHT */}
       <div className="flex flex-row items-center justify-end gap-4 xl:gap-8">
         <ClerkLoading>
           <Loader />
@@ -88,6 +87,7 @@ const Topbar = () => {
                 src={"/followers.svg"}
                 width={20}
                 height={20}
+                className="invert-image"
               />
 
               <Image
@@ -95,6 +95,7 @@ const Topbar = () => {
                 src={"/chat.svg"}
                 width={20}
                 height={20}
+                className="invert-image"
               />
 
               <Image
@@ -102,6 +103,7 @@ const Topbar = () => {
                 src={"/notification.svg"}
                 width={20}
                 height={20}
+                className="invert-image"
               />
 
               <UserButton />
@@ -116,6 +118,7 @@ const Topbar = () => {
                   src={"/sign-in.svg"}
                   width={20}
                   height={20}
+                  className="invert-image"
                 />
               </Link>
             </div>

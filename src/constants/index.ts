@@ -29,7 +29,7 @@ export const navbarLinks = [
   },
   {
     route: "",
-    label: "stories",
+    label: "Stories",
     imageURL: "/story.svg",
   },
 ];
