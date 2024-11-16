@@ -1,6 +1,7 @@
 "use client";
 
 import { hamburgerMenuLinks } from "@/constants";
+import { INavLink } from "@/types";
 import { link } from "fs";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +24,7 @@ const HamburgerMenu = () => {
       {isOpen && (
         <div className="absolute left-0 top-24 z-10 flex h-[calc(100vh-96px)] w-full flex-col items-center justify-center gap-8 text-xl font-medium">
           <ul>
-            {hamburgerMenuLinks.map((link) => {
+            {hamburgerMenuLinks.map((link: INavLink) => {
               return (
                 <li key={link.label}>
                   <Link

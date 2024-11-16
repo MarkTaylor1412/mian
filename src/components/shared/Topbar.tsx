@@ -14,6 +14,7 @@ import {
 } from "@clerk/nextjs";
 import Loader from "./Loader";
 import { Input } from "../ui/input";
+import { INavLink } from "@/types";
 
 const Topbar = () => {
   return (
@@ -35,7 +36,7 @@ const Topbar = () => {
       {/* //# CENTRE */}
       <div className="hidden w-full items-center justify-between text-sm md:flex">
         <ul className="flex flex-row text-foreground">
-          {navbarLinks.map((link) => {
+          {navbarLinks.map((link: INavLink) => {
             return (
               <li key={link.label}>
                 <Link

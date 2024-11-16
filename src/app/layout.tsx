@@ -7,8 +7,8 @@ import { bodoni, inter, merriweather, montserrat, playfair } from "./fonts";
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
-  title: "Integram",
-  description: "By Taylor",
+  title: "Refined",
+  description: "by Trenphyr Inc.",
 };
 
 export default function RootLayout({
