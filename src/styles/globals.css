@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+body {
+  transition: 0.5s;
+}
+
+@layer base {
+  :root {
+    --background: #f7f8fa;
+    --foreground: #1a1a1a;
+    --card: #ffffff;
+    --card-foreground: #1a1a1a;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a1a;
+    --primary: #171717;
+    --primary-foreground: #f9fafb;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #171717;
+    --muted: #f5f5f5;
+    --muted-foreground: #737373;
+    --accent: #f5f5f5;
+    --accent-foreground: #171717;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --border: #e5e5e5;
+    --input: #f0f0f0;
+    --ring: #333333;
+    --chart-1: #e76e50;
+    --chart-2: #2a9d90;
+    --chart-3: #274754;
+    --chart-4: #e8c468;
+    --chart-5: #f4a462;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #1a1a1a;
+    --foreground: #eaeaea;
+    --card: #262626;
+    --card-foreground: #eaeaea;
+    --popover: #262626;
+    --popover-foreground: #eaeaea;
+    --primary: #eaeaea;
+    --primary-foreground: #171717;
+    --secondary: #333333;
+    --secondary-foreground: #eaeaea;
+    --muted: #333333;
+    --muted-foreground: #a3a3a3;
+    --accent: #333333;
+    --accent-foreground: #eaeaea;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafafa;
+    --border: #404040;
+    --input: #262626;
+    --ring: #525252;
+    --chart-1: #2662d9;
+    --chart-2: #2eb88a;
+    --chart-3: #e88c30;
+    --chart-4: #af57db;
+    --chart-5: #e23670;
+  }
+}
+
+@layer base {
+  * {
+    @apply custom-scrollbar scroll-smooth border-border ring-ring;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .common-container {
+    @apply flex h-[calc(100vh-96px)] items-center justify-center;
+  }
+}
+
+@layer utilities {
+  .invert-image {
+    @apply dark:invert;
+  }
+
+  .glassmorphism {
+    background-color: transparent;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+  }
+
+  /** TYPOGRAPHY */
+  .extralight-xs {
+    @apply text-xs font-extralight;
+  }
+
+  .light-sm {
+    @apply text-sm font-light;
+  }
+
+  .normal-base {
+    @apply text-base font-normal;
+  }
+
+  .medium-lg {
+    @apply text-lg font-medium;
+  }
+
+  .semibold-xl {
+    @apply text-xl font-semibold;
+  }
+
+  .bold-2xl {
+    @apply text-2xl font-bold;
+  }
+
+  .extrabold-3xl {
+    @apply text-3xl font-extrabold;
+  }
+
+  .black-4xl {
+    @apply text-4xl font-black;
+  }
+
+  .black-5xl {
+    @apply text-5xl font-black;
+  }
+
+  /** FLEX */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
+
+  .flex-end {
+    @apply flex items-center justify-end;
+  }
+
+  /** SCROLLBAR */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--secondary);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-foreground);
+  }
+
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hidden-scrollbar {
+    /* -ms-overflow-style: none; */
+    scrollbar-width: none;
+  }
+}
+
+/** TEST */
+
+.test .image {
+  @apply bg-white-100;
+
+  img {
+    mix-blend-mode: darken;
+  }
+}
+
+/*# TEST CHANGE THEME */
+.test_change-theme {
+  width: 60px;
+  height: 30px;
+  background: var(--primary);
+  border-radius: 20px;
+  position: relative;
+  transition: 0.5s;
+
+  input {
+    display: none;
+  }
+}
+
+.test_change-theme::before {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  background: var(--muted);
+  width: 20px;
+  height: 20px;
+  content: "";
+  border-radius: 50%;
+  transition: 0.5s;
+  box-shadow: 0 2px 10px 0 var(--input);
+}
+
+.test_change-theme:has(input:hover) {
+  @apply bg-muted-foreground;
+}
+
+.test_change-theme:has(input:hover)::before {
+  left: calc(100% - 25px);
+}
+
+body:has(input[name="change-theme"]:hover) {
+  @apply bg-white text-black;
+}
+
+/*# TEST HOVER 3D */
+.list {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.list .item {
+  transition: 0.5s;
+  filter: brightness(0);
+}
+
+.list .item:hover {
+  filter: brightness(1);
+  transform: translateZ(200px);
+}
+
+.list .item:hover + * {
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(40deg);
+}
+
+.list .item:hover + * + * {
+  filter: brightness(0.4);
+  transform: translateZ(70px) rotateY(20deg);
+}
+
+.list .item:hover + * + * + * {
+  filter: brightness(0.2);
+  transform: translateZ(30px) rotateY(10deg);
+}
+
+.list .item:has(+ *:hover) {
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(-40deg);
+}
+
+.list .item:has(+ * + *:hover) {
+  filter: brightness(0.4);
+  transform: translateZ(70px) rotateY(-20deg);
+}
+
+.list .item:has(+ * + * + *:hover) {
+  filter: brightness(0.2);
+  transform: translateZ(30px) rotateY(-10deg);
+}

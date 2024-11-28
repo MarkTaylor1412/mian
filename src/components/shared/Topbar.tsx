@@ -15,27 +15,43 @@ import {
 import Loader from "./Loader";
 import { Input } from "../ui/input";
 import { INavLink } from "@/types";
+import ScrambleText from "./ScrambleText";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "../ui/command";
+import { CommandMenu } from "./CommandMenu";
 
 const Topbar = () => {
   return (
-    <div className="flex h-24 w-full flex-row items-center justify-between gap-3 border-b bg-card px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+    <div className="glassmorphism fixed left-0 top-0 z-50 flex h-24 w-full flex-row items-center justify-between gap-3 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       {/* //# LEFT */}
-      <div className="flex w-[20%] flex-row items-center justify-center md:hidden lg:block">
+      <div className="flex w-[10%] flex-row items-center justify-start md:hidden lg:block">
         <Link href={"/"}>
-          <Image
-            alt="Monogram"
-            src={"/monogram-logo.svg"}
-            width={200}
-            height={200}
-            className="invert-image"
-            priority
+          <ScrambleText
+            text="Mian"
+            className="extrabold-3xl font-montserrat uppercase -tracking-wide"
           />
         </Link>
       </div>
 
       {/* //# CENTRE */}
-      <div className="hidden w-full items-center justify-between text-sm md:flex">
-        <ul className="flex flex-row text-foreground">
+      <div className="hidden w-[70%] flex-row items-center justify-between gap-2 text-sm md:flex">
+        <ul className="flex flex-row">
           {navbarLinks.map((link: INavLink) => {
             return (
               <li key={link.label}>
@@ -59,26 +75,27 @@ const Topbar = () => {
         </ul>
 
         <div className="hidden items-center rounded-xl bg-input p-2 xl:flex">
-          <Input
+          {/* <Input
             type="search"
             placeholder="Ctrl + K"
             className="bg-transparent"
-          />
+          /> */}
 
-          <Image
-            alt="Search"
-            src={"/search.svg"}
-            width={14}
-            height={14}
-            className="invert-image mx-2 opacity-60"
-          />
+          <CommandMenu />
         </div>
       </div>
 
       {/* //# RIGHT */}
-      <div className="flex flex-row items-center justify-end gap-4 xl:gap-8">
+      <div className="flex w-[10%] flex-row items-center justify-end gap-4 xl:gap-8">
         <ClerkLoading>
-          <Loader />
+          {/* <Loader /> */}
+          <div className="hidden animate-pulse cursor-pointer flex-row items-center gap-3 md:flex">
+            <div className="h-5 w-5 rounded-full bg-gray-200" />
+            <div className="h-5 w-5 rounded-full bg-gray-200" />
+            <div className="h-5 w-5 rounded-full bg-gray-200" />
+
+            <div className="h-10 w-10 animate-pulse rounded-full bg-gray-200" />
+          </div>
         </ClerkLoading>
         <ClerkLoaded>
           <SignedIn>

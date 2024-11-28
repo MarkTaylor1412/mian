@@ -1,9 +1,23 @@
-import React from 'react'
+import React from "react";
+import Post from "./Post";
 
 const Feed = () => {
   return (
-    <div className='ring-1 size-full bg-card'>Feed</div>
-  )
-}
+    <div className="flex flex-col gap-12 rounded-lg bg-card p-4 shadow-md">
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+    </div>
+  );
+};
 
-export default Feed
+export default Feed;

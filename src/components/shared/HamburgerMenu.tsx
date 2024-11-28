@@ -16,13 +16,13 @@ const HamburgerMenu = () => {
         className="flex cursor-pointer flex-col gap-1 *:h-1 *:origin-left *:rounded-sm *:bg-primary *:duration-500 *:ease-in-out"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <div className={`w-6 ${isOpen ? "rotate-45" : ""}`} />
+        <div className={`w-6 ${isOpen ? "w-1 rotate-45" : ""}`} />
         <div className={`w-3 ${isOpen ? "opacity-0" : ""}`} />
-        <div className={`w-6 ${isOpen ? "-rotate-45" : ""}`} />
+        <div className={`w-5 ${isOpen ? "w-6 -rotate-45" : ""}`} />
       </div>
 
       {isOpen && (
-        <div className="absolute left-0 top-24 z-10 flex h-[calc(100vh-96px)] w-full flex-col items-center justify-center gap-8 text-xl font-medium">
+        <div className="semibold-xl glassmorphism absolute left-0 top-24 z-10 flex h-[calc(100vh-96px)] w-full flex-col items-center justify-center gap-8">
           <ul>
             {hamburgerMenuLinks.map((link: INavLink) => {
               return (
@@ -36,6 +36,7 @@ const HamburgerMenu = () => {
                       src={link.imageURL}
                       width={24}
                       height={24}
+                      className="invert-image"
                     />
 
                     <p>{link.label}</p>
