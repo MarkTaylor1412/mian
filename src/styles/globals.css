@@ -4,7 +4,13 @@
 @tailwind variants;
 
 body {
-  transition: 0.5s;
+}
+
+:root,
+.dark {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 @layer base {
@@ -25,9 +31,15 @@ body {
     --accent-foreground: #171717;
     --destructive: #ef4444;
     --destructive-foreground: #fafafa;
+    --highlight: #ffb703;
+    --success: #36b37e;
+    --warning: #ff8800;
     --border: #e5e5e5;
     --input: #f0f0f0;
     --ring: #333333;
+    --link: #0f52ba;
+    --link-hover: #0080ff;
+    --link-active: #005a92;
     --chart-1: #e76e50;
     --chart-2: #2a9d90;
     --chart-3: #274754;
@@ -53,9 +65,15 @@ body {
     --accent-foreground: #eaeaea;
     --destructive: #7f1d1d;
     --destructive-foreground: #fafafa;
+    --highlight: #fb8500;
+    --success: #28a745;
+    --warning: #d97706;
     --border: #404040;
     --input: #262626;
     --ring: #525252;
+    --link: #0080ff;
+    --link-hover: #0f52ba;
+    --link-active: #005a92;
     --chart-1: #2662d9;
     --chart-2: #2eb88a;
     --chart-3: #e88c30;
@@ -66,7 +84,7 @@ body {
 
 @layer base {
   * {
-    @apply custom-scrollbar scroll-smooth border-border ring-ring;
+    @apply custom-scrollbar scroll-smooth border-border ring-ring transition-all duration-75 ease-in-out;
   }
 
   body {
@@ -76,19 +94,48 @@ body {
 
 @layer components {
   .common-container {
-    @apply flex h-[calc(100vh-96px)] items-center justify-center;
+    @apply flex-center h-[calc(100vh-96px)];
+  }
+
+  .form-container {
+    @apply flex-center glassmorphism z-50 h-[100vh];
   }
 }
 
 @layer utilities {
-  .invert-image {
+  /** DECORATION  */
+  .image-invert {
     @apply dark:invert;
+  }
+
+  .image-hover {
+    /* @apply fill-[red] stroke-[red] text-[red] hover:fill-[red] hover:stroke-[red] hover:text-[red]; */
+    stroke: #0080ff !important;
+    transition: 0.5s;
+  }
+
+  .image-hover:hover {
+    stroke: #0f52ba !important;
   }
 
   .glassmorphism {
     background-color: transparent;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+  }
+
+  .link-button {
+    @apply text-link transition-all duration-300 ease-in-out hover:text-link-hover hover:underline hover:underline-offset-4 active:text-link-active active:underline-offset-2;
+  }
+
+  .theme-indicator {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    z-index: 1;
   }
 
   /** TYPOGRAPHY */

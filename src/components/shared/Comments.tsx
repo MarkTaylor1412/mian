@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Input } from "../ui/input";
 
-const Comment = () => {
+const Comments = () => {
   return (
     <div className="">
       <div className="flex flex-row items-center gap-4">
@@ -26,7 +26,7 @@ const Comment = () => {
             src={"/emoji-smile.svg"}
             width={16}
             height={16}
-            className="invert-image absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
+            className="image-invert absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
           />
         </div>
       </div>
@@ -60,7 +60,7 @@ const Comment = () => {
                   src={"/heart.svg"}
                   width={12}
                   height={12}
-                  className="invert-image cursor-pointer"
+                  className="image-invert cursor-pointer"
                 />
                 <span>|</span>
                 <span>12</span>
@@ -72,26 +72,26 @@ const Comment = () => {
 
           <div>
             <Image
-              alt="More"
-              src={"/more.svg"}
+              alt="Like"
+              src={"/like.svg"}
               width={16}
               height={16}
-              className="invert-image cursor-pointer"
+              className="image-invert cursor-pointer"
             />
-            {/* <Image
-              alt="More"
-              src={"/.svg"}
+            <Image
+              alt="Reply"
+              src={"/reply.svg"}
               width={16}
               height={16}
-              className="invert-image cursor-pointer"
-            /> */}
-            {/* <Image
+              className="image-invert cursor-pointer"
+            />
+            <Image
               alt="More"
               src={"/more.svg"}
               width={16}
               height={16}
-              className="invert-image cursor-pointer"
-            /> */}
+              className="image-invert cursor-pointer"
+            />
           </div>
         </div>
       </div>
@@ -99,4 +99,4 @@ const Comment = () => {
   );
 };
 
-export default Comment;
+export default Comments;

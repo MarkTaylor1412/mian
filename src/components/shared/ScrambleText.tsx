@@ -1,10 +1,17 @@
-"use client"
+"use client";
 
-import { ScrambleTextProps } from "@/types";
-import React, { useRef } from "react";
+import React, { ElementType, useRef } from "react";
 
 // const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const letters = "abcdefghijklmnopqrstuvwxyz";
+
+interface ScrambleTextProps {
+  text: string;
+  as?: ElementType;
+  speed?: number;
+  increment?: number;
+  className?: string;
+}
 
 const ScrambleText: React.FC<ScrambleTextProps> = ({
   text,

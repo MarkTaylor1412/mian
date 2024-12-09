@@ -1,0 +1,162 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// model TestDB {
+//   id          Int      @id @default(autoincrement())
+//   name        String   @db.VarChar(50)
+//   description String?
+//   dial        Int?
+//   isVerified  Boolean?
+// }
+
+model User {
+  id               String          @id
+  username         String          @unique @db.VarChar(25)
+  avatarUrl        String?         @db.VarChar(255)
+  coverUrl         String?         @db.VarChar(255)
+  firstname        String?
+  surname          String?
+  bio              String?
+  education        String?
+  nationality      String?
+  externalLink     String?
+  createdAt        DateTime        @default(now())
+  posts            Post[]
+  postLikes        PostLike[]
+  comments         Comment[]
+  commentLikes     CommentLike[]
+  stories          Story[]
+  followers        Follow[]        @relation("UserFollowers")
+  followings       Follow[]        @relation("UserFollowings")
+  requestsSent     FollowRequest[] @relation("RequestsSent")
+  requestsReceived FollowRequest[] @relation("RequestsReceived")
+  blocksSent       Block[]         @relation("BlocksSent")
+  blocksReceived   Block[]         @relation("BlocksReceived")
+
+  @@index([username])
+}
+
+model Post {
+  id        Int        @id @default(autoincrement())
+  content   String     @db.Text
+  mediaUrl  String?    @db.VarChar(255)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  likes     PostLike[]
+  comments  Comment[]
+
+  @@index([createdAt])
+}
+
+// model Like {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
+//   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId    String
+//   post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   postId    Int?
+//   Comment   Comment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
+//   commentId Int?
+
+//   @@unique([userId, postId])
+//   @@unique([userId, commentId])
+// }
+
+model PostLike {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    Int?
+
+  @@unique([userId, postId])
+}
+
+model Comment {
+  id        Int           @id @default(autoincrement())
+  message   String        @db.Text
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  Post      Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    Int
+  likes     CommentLike[]
+
+  @@index([createdAt])
+}
+
+model CommentLike {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  comment   Comment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  commentId Int?
+
+  @@unique([userId, commentId])
+}
+
+model Story {
+  id        Int      @id @default(autoincrement())
+  mediaUrl  String
+  createdAt DateTime @default(now())
+  expiredAt DateTime
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  @@index([createdAt])
+}
+
+model Follow {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  follower    User     @relation(name: "UserFollowers", fields: [followerId], references: [id], onDelete: Cascade)
+  followerId  String
+  following   User     @relation(name: "UserFollowings", fields: [followingId], references: [id], onDelete: Cascade)
+  followingId String
+}
+
+model FollowRequest {
+  id         Int                 @id @default(autoincrement())
+  createdAt  DateTime            @default(now())
+  sender     User                @relation(name: "RequestsSent", fields: [senderId], references: [id], onDelete: Cascade)
+  senderId   String
+  receiver   User                @relation(name: "RequestsReceived", fields: [receiverId], references: [id], onDelete: Cascade)
+  receiverId String
+  status     FollowRequestStatus @default(PENDING)
+
+  @@unique([senderId, receiverId])
+}
+
+enum FollowRequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+model Block {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  blocker   User     @relation(name: "BlocksSent", fields: [blockerId], references: [id], onDelete: Cascade)
+  blockerId String
+  blocked   User     @relation(name: "BlocksReceived", fields: [blockedId], references: [id], onDelete: Cascade)
+  blockedId String
+
+  @@unique([blockerId, blockedId])
+}

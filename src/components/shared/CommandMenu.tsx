@@ -1,38 +1,22 @@
 "use client";
 
-import * as React from "react";
-import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-} from "lucide-react";
+import { useEffect, useState } from "react";
 
 import {
-  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "../ui/command";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+import { DialogTitle } from "../ui/dialog";
 import { Button } from "../ui/button";
 
-export function CommandMenu() {
-  const [open, setOpen] = React.useState(false);
+const CommandMenu = () => {
+  const [open, setOpen] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
@@ -74,4 +58,6 @@ export function CommandMenu() {
       </CommandDialog>
     </>
   );
-}
+};
+
+export default CommandMenu;

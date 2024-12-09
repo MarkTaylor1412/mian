@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:v="https://svgstorm.com"
+viewBox = "0 0 224 144"
+width="224"
+height="144">
+<g fill="None" fill-opacity="0.0" stroke="#202936" stroke-opacity="1.00" stroke-width="0.3"><path d="
+M 0.00 144.00 
+L 224.00 144.00
+L 224.00 0.00
+L 0.00 0.00
+L 0.00 144.00 Z"/>
+</g>
+<g fill="#202936" fill-opacity="1.00" stroke="None">
+<path d="
+M 0.00 144.00 
+L 224.00 144.00
+L 224.00 0.00
+L 0.00 0.00
+L 0.00 144.00 Z"/>
+</g>
+</svg>

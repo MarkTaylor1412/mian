@@ -61,6 +61,11 @@ const config: Config = {
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
+        link: {
+          DEFAULT: "var(--link)",
+          hover: "var(--link-hover)",
+          active: "var(--link-active)",
+        },
         chart: {
           "1": "var(--chart-1)",
           "2": "var(--chart-2)",

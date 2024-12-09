@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 
-import Topbar from "@/components/shared/Topbar";
-
+import ConditionalNavbar from "@/components/shared/ConditionalNavbar";
+import { ClerkProvider } from "@clerk/nextjs";
 import "../styles/globals.css";
 import { bodoni, inter, merriweather, montserrat, playfair } from "./fonts";
-import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Mian",
@@ -20,9 +19,13 @@ export default function RootLayout({
     <ClerkProvider>
       <html
         lang="en"
-        className={`${bodoni.variable} ${merriweather.variable} ${montserrat.variable} ${playfair.variable} dark`}
+        className={`${bodoni.variable} ${merriweather.variable} ${montserrat.variable} ${playfair.variable}`}
       >
-        <body className={`${inter.className} antialiased`}>{children}</body>
+        <body className={`${inter.className} antialiased`}>
+          <ConditionalNavbar />
+
+          <div className="">{children}</div>
+        </body>
       </html>
     </ClerkProvider>
   );

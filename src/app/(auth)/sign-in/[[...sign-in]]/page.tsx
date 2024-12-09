@@ -2,7 +2,7 @@ import { SignIn } from "@clerk/nextjs";
 
 const SignInPage = () => {
   return (
-    <div className="common-container">
+    <div className="form-container">
       <SignIn />
     </div>
   );

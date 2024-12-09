@@ -1,10 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import HamburgerMenu from "./HamburgerMenu";
-import { Home } from "lucide-react";
-import { bodoni, inter } from "@/app/fonts";
 import { navbarLinks } from "@/constants";
+import { INavLink } from "@/types";
 import {
   ClerkLoaded,
   ClerkLoading,
@@ -12,35 +7,19 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-import Loader from "./Loader";
-import { Input } from "../ui/input";
-import { INavLink } from "@/types";
+import Image from "next/image";
+import Link from "next/link";
+import CommandMenu from "./CommandMenu";
+import HamburgerMenu from "./HamburgerMenu";
 import ScrambleText from "./ScrambleText";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
-import {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-} from "../ui/command";
-import { CommandMenu } from "./CommandMenu";
+import ThemeToggle from "./ThemeToggle";
+import { Button } from "../ui/button";
 
-const Topbar = () => {
+const Navbar = () => {
   return (
-    <div className="glassmorphism fixed left-0 top-0 z-50 flex h-24 w-full flex-row items-center justify-between gap-3 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+    <div className="glassmorphism fixed left-0 top-0 z-20 flex h-24 w-full flex-row items-center justify-between gap-3 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       {/* //# LEFT */}
-      <div className="flex w-[10%] flex-row items-center justify-start md:hidden lg:block">
+      <div className="flex w-[20%] flex-row items-center justify-start md:hidden lg:block">
         <Link href={"/"}>
           <ScrambleText
             text="Mian"
@@ -50,24 +29,24 @@ const Topbar = () => {
       </div>
 
       {/* //# CENTRE */}
-      <div className="hidden w-[70%] flex-row items-center justify-between gap-2 text-sm md:flex">
-        <ul className="flex flex-row">
+      <div className="hidden w-[80%] flex-row items-center justify-between gap-2 text-sm md:flex">
+        <ul className="flex flex-row gap-2">
           {navbarLinks.map((link: INavLink) => {
             return (
               <li key={link.label}>
                 <Link
                   href={link.route}
-                  className="flex flex-row items-center gap-2 p-4"
+                  className="flex-center group relative flex-row gap-2 px-4 py-2 hover:text-muted-foreground"
                 >
                   <Image
                     alt={link.label}
                     src={link.imageURL}
                     width={16}
                     height={16}
-                    className="invert-image"
+                    className="image-invert"
                   />
-
                   <p>{link.label}</p>
+                  <span className="ease-[cubic-bezier(0.25, 0.1, 0.25, 1)] absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-500 group-hover:w-full" />
                 </Link>
               </li>
             );
@@ -86,7 +65,7 @@ const Topbar = () => {
       </div>
 
       {/* //# RIGHT */}
-      <div className="flex w-[10%] flex-row items-center justify-end gap-4 xl:gap-8">
+      <div className="flex w-[20%] flex-row items-center justify-end gap-4 xl:gap-8">
         <ClerkLoading>
           {/* <Loader /> */}
           <div className="hidden animate-pulse cursor-pointer flex-row items-center gap-3 md:flex">
@@ -105,7 +84,7 @@ const Topbar = () => {
                 src={"/followers.svg"}
                 width={20}
                 height={20}
-                className="invert-image"
+                className="image-invert"
               />
 
               <Image
@@ -113,7 +92,7 @@ const Topbar = () => {
                 src={"/chat.svg"}
                 width={20}
                 height={20}
-                className="invert-image"
+                className="image-invert"
               />
 
               <Image
@@ -121,7 +100,7 @@ const Topbar = () => {
                 src={"/notification.svg"}
                 width={20}
                 height={20}
-                className="invert-image"
+                className="image-invert"
               />
 
               <UserButton />
@@ -129,15 +108,25 @@ const Topbar = () => {
           </SignedIn>
 
           <SignedOut>
-            <div className="flex flex-row items-center gap-2 text-sm">
-              <Link href={"/sign-in"}>
-                <Image
-                  alt="Sign In"
-                  src={"/sign-in.svg"}
-                  width={20}
-                  height={20}
-                  className="invert-image"
-                />
+            <div className="flex-end flex-row gap-2">
+              <Link
+                href={"/sign-in"}
+                className="group relative"
+              >
+                <Button className="light-sm bg-transparent p-1 text-primary hover:text-muted-foreground">
+                  Sign In
+                  <span className="ease-[cubic-bezier(0.25, 0.1, 0.25, 1)] absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-500 group-hover:w-full" />
+                </Button>
+              </Link>
+
+              <Link
+                href={"/sign-up"}
+                className="group relative"
+              >
+                <Button className="light-sm bg-transparent p-1 text-primary hover:text-muted-foreground">
+                  Sign Up
+                </Button>
+                <span className="ease-[cubic-bezier(0.25, 0.1, 0.25, 1)] absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-500 group-hover:w-full" />
               </Link>
             </div>
           </SignedOut>
@@ -148,4 +137,4 @@ const Topbar = () => {
   );
 };
 
-export default Topbar;
+export default Navbar;

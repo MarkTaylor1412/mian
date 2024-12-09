@@ -5,8 +5,8 @@ export const hamburgerMenuLinks = [
     imageURL: "/home.svg",
   },
   {
-    route: "/discover",
-    label: "Discover",
+    route: "/explore",
+    label: "Explore",
     imageURL: "/explore.svg",
   },
 ];
@@ -18,8 +18,8 @@ export const navbarLinks = [
     imageURL: "/home.svg",
   },
   {
-    route: "/discover",
-    label: "Discover",
+    route: "/explore",
+    label: "Explore",
     imageURL: "/explore.svg",
   },
   {

@@ -36,7 +36,7 @@ const HamburgerMenu = () => {
                       src={link.imageURL}
                       width={24}
                       height={24}
-                      className="invert-image"
+                      className="image-invert"
                     />
 
                     <p>{link.label}</p>
