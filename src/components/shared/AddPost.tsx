@@ -11,7 +11,7 @@ import DynamicButton from "./DynamicButton";
 const AddPost = () => {
   const { user, isLoaded } = useUser();
   const [content, setContent] = useState("");
-  const [mediaUrl, setMediaUrl] = useState<any>("");
+  const [mediaUrl, setMediaUrl] = useState<any>();
 
   if (!isLoaded)
     return (
