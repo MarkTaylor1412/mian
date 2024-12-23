@@ -18,18 +18,38 @@ export const navbarLinks = [
     imageURL: "/home.svg",
   },
   {
-    route: "/explore",
+    route: "/#explore",
     label: "Explore",
     imageURL: "/explore.svg",
   },
   {
-    route: "",
+    route: "/#stories",
+    label: "Stories",
+    imageURL: "/story.svg",
+  },
+  {
+    route: "/#followers",
     label: "Followers",
     imageURL: "/followers.svg",
   },
   {
-    route: "",
-    label: "Stories",
-    imageURL: "/story.svg",
+    route: "/#messages",
+    label: "Messages",
+    imageURL: "/chat.svg",
+  },
+  {
+    route: "/#notifications",
+    label: "Notifications",
+    imageURL: "/notification.svg",
+  },
+  {
+    route: "/#settings",
+    label: "Settings",
+    imageURL: "/settings.svg",
+  },
+  {
+    route: "/#help",
+    label: "Help",
+    imageURL: "/help.svg",
   },
 ];

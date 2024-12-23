@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import ConditionalNavbar from "@/components/shared/ConditionalNavbar";
+import ThemeToggle from "@/components/shared/ThemeToggle";
 import { ClerkProvider } from "@clerk/nextjs";
 import "../styles/globals.css";
 import { bodoni, inter, merriweather, montserrat, playfair } from "./fonts";
@@ -25,6 +26,10 @@ export default function RootLayout({
           <ConditionalNavbar />
 
           <div className="">{children}</div>
+
+          <div className="fixed bottom-5 right-5 transition-all duration-300 ease-in-out hover:scale-110 hover:transform">
+            <ThemeToggle />
+          </div>
         </body>
       </html>
     </ClerkProvider>

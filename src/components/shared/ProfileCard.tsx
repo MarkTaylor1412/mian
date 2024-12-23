@@ -58,21 +58,21 @@ const ProfileCard = async () => {
           <div className="flex flex-row">
             <Image
               alt="Follower"
-              src={"/bbyboo.jpg"}
+              src={"/kitten.jpg"}
               width={12}
               height={12}
               className="size-3 rounded-full object-cover"
             />
             <Image
               alt="Follower"
-              src={"/bbyboo1.jpg"}
+              src={"/kitten.jpg"}
               width={12}
               height={12}
               className="size-3 rounded-full object-cover"
             />
             <Image
               alt="Follower"
-              src={"/bbyboo2.jpg"}
+              src={"/kitten.jpg"}
               width={12}
               height={12}
               className="size-3 rounded-full object-cover"

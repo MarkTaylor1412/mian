@@ -3,8 +3,7 @@
 @tailwind utilities;
 @tailwind variants;
 
-body {
-}
+body {}
 
 :root,
 .dark {
@@ -103,6 +102,7 @@ body {
 }
 
 @layer utilities {
+
   /** DECORATION  */
   .image-invert {
     @apply dark:invert;
@@ -125,13 +125,13 @@ body {
   }
 
   .link-button {
-    @apply text-link transition-all duration-300 ease-in-out hover:text-link-hover hover:underline hover:underline-offset-4 active:text-link-active active:underline-offset-2;
+    @apply text-link transition-all duration-300 ease-in-out hover:text-link-hover hover:underline hover:underline-offset-4 active:text-link-active active:underline-offset-2 cursor-pointer;
   }
 
   .theme-indicator {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color: var(--primary);
     border-radius: 50%;
     transition: transform 0.3s ease;
@@ -287,17 +287,17 @@ body:has(input[name="change-theme"]:hover) {
   transform: translateZ(200px);
 }
 
-.list .item:hover + * {
+.list .item:hover+* {
   filter: brightness(0.6);
   transform: translateZ(150px) rotateY(40deg);
 }
 
-.list .item:hover + * + * {
+.list .item:hover+*+* {
   filter: brightness(0.4);
   transform: translateZ(70px) rotateY(20deg);
 }
 
-.list .item:hover + * + * + * {
+.list .item:hover+*+*+* {
   filter: brightness(0.2);
   transform: translateZ(30px) rotateY(10deg);
 }

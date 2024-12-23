@@ -4,7 +4,6 @@ import FollowRequests from "./FollowRequests";
 import InfoCard from "./InfoCard";
 import MediaCard from "./MediaCard";
 import ProfileCard from "./ProfileCard";
-import ThemeToggle from "./ThemeToggle";
 
 const RightSideBar = ({
   user,
@@ -33,9 +32,6 @@ const RightSideBar = ({
       ) : null}
 
       <FollowRequests />
-      {/* <Birthdays /> */}
-      {/* <Advertisement size="md" /> */}
-      <ThemeToggle />
     </div>
   );
 };

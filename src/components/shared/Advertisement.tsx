@@ -20,7 +20,7 @@ const Advertisement = ({ size }: { size: "sm" | "md" | "lg" }) => {
         {/* <div className="relative">
           <Image
               alt="Advertisement"
-              src={"/kitten.jpg"}
+              src={"/.jpg"}
               fill
               className='rounded-md object-cover'
               />

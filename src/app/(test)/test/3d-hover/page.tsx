@@ -7,8 +7,8 @@ const hover3dTest = () => {
       <div className="list flex flex-row gap-1">
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -16,8 +16,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo1.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -25,8 +25,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo2.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -34,8 +34,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -43,8 +43,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo1.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -52,8 +52,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo2.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -61,8 +61,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -70,8 +70,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo1.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -79,8 +79,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo2.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />
@@ -88,8 +88,8 @@ const hover3dTest = () => {
 
         <div className="item">
           <Image
-            alt="bbyboo"
-            src={"/bbyboo.jpg"}
+            alt="kitten"
+            src={"/kitten.jpg"}
             width={150}
             height={150}
           />

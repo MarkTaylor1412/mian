@@ -68,9 +68,11 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
             </div>
 
             <h1 className="bold-2xl mt-20">{user.username}</h1>
-            <span className="regular-base text-muted-foreground">{user.firstname && user.surname
-            ? user.firstname + " " + user.surname
-            : ""}</span>
+            <span className="regular-base text-muted-foreground">
+              {user.firstname && user.surname
+                ? user.firstname + " " + user.surname
+                : ""}
+            </span>
 
             <div className="flex-center my-4 flex-row gap-12">
               <div className="flex-center flex-col">
@@ -87,7 +89,8 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
               </div>
             </div>
           </div>
-          <Feed />
+
+          <Feed username={user.username} />
         </div>
       </div>
 

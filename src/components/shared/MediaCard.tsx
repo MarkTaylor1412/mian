@@ -21,12 +21,7 @@ const MediaCard = async ({ user }: { user: User }) => {
     <div className="light-sm flex flex-col gap-4 rounded-lg bg-card p-4 shadow-md">
       <div className="flex-between flex-row gap-4 font-medium">
         <span className="text-muted-foreground">Media</span>
-        <Link
-          href={"#"}
-          className="link-button extralight-xs hover:light-sm"
-        >
-          View all
-        </Link>
+        <span className="link-button">View all</span>
       </div>
 
       <div className="flex flex-wrap justify-between gap-3">
@@ -45,7 +40,7 @@ const MediaCard = async ({ user }: { user: User }) => {
             </div>
           ))
         ) : (
-          <div className="flex-center size-24">No media yet.</div>
+          <div className="flex-center w-full flex-row h-24">No media yet.</div>
         )}
       </div>
     </div>

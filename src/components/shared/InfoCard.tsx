@@ -55,31 +55,26 @@ const InfoCard = async ({ user }: { user: User }) => {
       <div className="flex-between flex-row gap-4 font-medium">
         <span className="text-muted-foreground">User Information</span>
         {currentUserId === user.id ? (
-          <InfoEditCard />
+          <InfoEditCard user={user} />
         ) : (
-          <Link
-            href={"#"}
-            className="link-button extralight-xs hover:light-sm"
-          >
-            View all
-          </Link>
+          <span className="link-button">View all</span>
         )}
       </div>
 
       <div className="flex flex-col gap-4 text-muted-foreground">
         <div className="flex-start flex-row gap-2">
-          <span className="medium-lg text-primary">{user.username}</span>
-          <span className="light-sm">
+          <span className="medium-lg text-primary">
             {user.firstname && user.surname
               ? user.firstname + " " + user.surname
               : ""}
           </span>
+          <span className="light-sm">{user.username}</span>
         </div>
 
-        {user.bio && <p>{user.bio}</p>}
+        {user.bio && <kbd>{user.bio}</kbd>}
 
         {user.education && (
-          <div className="flex-start flex-row gap-1">
+          <div className="flex-start flex-row gap-2">
             <Image
               alt="Education"
               src={"/education.svg"}
@@ -92,7 +87,7 @@ const InfoCard = async ({ user }: { user: User }) => {
         )}
 
         {user.nationality && (
-          <div className="flex-start flex-row gap-1">
+          <div className="flex-start flex-row gap-2">
             <Image
               alt="Nationality"
               src={"/nationality.svg"}
@@ -105,33 +100,33 @@ const InfoCard = async ({ user }: { user: User }) => {
         )}
 
         {user.externalLink && (
-          <div className="flex-between flex-row gap-2">
-            <div className="flex-start flex-row gap-1">
-              <Image
-                alt="External Link"
-                src={"/external-link.svg"}
-                width={16}
-                height={16}
-                className="image-invert"
-              />
-              <Link
-                href={user.externalLink}
-                className="link-button"
-              >
-                {user.externalLink}
-              </Link>
-            </div>
+          <div className="flex-start flex-row gap-2">
+            <Image
+              alt="External Link"
+              src={"/external-link.svg"}
+              width={16}
+              height={16}
+              className="image-invert"
+            />
+            <Link
+              href={user.externalLink}
+              className="link-button"
+            >
+              {user.externalLink}
+            </Link>
+          </div>
+        )}
 
-            <div className="flex-start flex-row gap-1">
-              <Image
-                alt="Date"
-                src={"/date.svg"}
-                width={16}
-                height={16}
-                className="image-invert"
-              />
-              <span>Joined {formattedDate}</span>
-            </div>
+        {user.createdAt && (
+          <div className="flex-start flex-row gap-2">
+            <Image
+              alt="Date"
+              src={"/date.svg"}
+              width={16}
+              height={16}
+              className="image-invert"
+            />
+            <span>Joined {formattedDate}</span>
           </div>
         )}
 

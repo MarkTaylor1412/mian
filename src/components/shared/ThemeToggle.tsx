@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { LaptopMinimal, Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState("system");
@@ -29,18 +29,19 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className="relative flex w-fit items-center justify-between gap[1] rounded-full bg-muted p-1">
-      {/* Indicator */}
+    <div className="flex-between relative w-fit flex-row rounded-full bg-muted p-1 shadow-md">
+      {/* //# INDICATOR */}
       <div
-        className={`theme-indicator ${
+        className={`theme-indicator shadow-md ${
           theme === "light"
-            ? "translate-x-0"
+            ? "translate-x-[1px]"
             : theme === "dark"
-              ? "translate-x-[64px]"
+              ? "translate-x-[62px]"
               : "translate-x-[32px]"
         }`}
       />
 
+      {/* //# BUTTONS */}
       <button
         onClick={() => handleThemeChange("light")}
         className="z-10 flex-1 p-2 text-center"

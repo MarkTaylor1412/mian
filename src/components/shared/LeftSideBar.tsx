@@ -10,7 +10,7 @@ const LeftSideBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="light-sm ml-4 flex flex-col gap-4 rounded-lg bg-card p-4 shadow-md">
+    <div className="light-sm ml-4 flex flex-col gap-4 rounded-lg bg-card p-4 shadow-md overflow-y-scroll h-[80vh]">
       <ul className="flex flex-col gap-6">
         {navbarLinks.map((link: INavLink) => {
           const isActive = pathname === link.route;

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { Button } from "../ui/button";
 import {
   CommandDialog,
   CommandEmpty,
@@ -11,9 +12,8 @@ import {
   CommandList,
 } from "../ui/command";
 import { DialogTitle } from "../ui/dialog";
-import { Button } from "../ui/button";
 
-const CommandMenu = () => {
+const Searchbar = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -60,4 +60,4 @@ const CommandMenu = () => {
   );
 };
 
-export default CommandMenu;
+export default Searchbar;
