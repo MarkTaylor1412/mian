@@ -12,18 +12,18 @@ const Stories = async () => {
       expiredAt: {
         gt: new Date(),
       },
-      OR: [
-        {
-          user: {
-            followers: {
-              some: {
-                followerId: currentUserId,
-              },
-            },
-          },
-          userId: currentUserId,
-        },
-      ],
+      // OR: [
+      //   {
+      //     user: {
+      //       followers: {
+      //         some: {
+      //           followerId: currentUserId,
+      //         },
+      //       },
+      //     },
+      //     userId: currentUserId,
+      //   },
+      // ],
     },
     include: {
       user: true,

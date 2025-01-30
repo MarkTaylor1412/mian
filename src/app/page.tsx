@@ -12,6 +12,8 @@ const Homepage = async() => {
   if (!user) {
     redirect("/sign-in")
   }
+
+  
   
   return (
     <div className="flex flex-row gap-6 pt-6 relative top-8">

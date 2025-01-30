@@ -3,7 +3,7 @@ import Post from "./Post";
 import { auth } from "@clerk/nextjs/server";
 import prisma from "@/lib/client";
 
-const Feed = async ({ username }: { username: string }) => {
+const Feed = async ({ username }: { username?: string }) => {
   const { userId } = await auth();
 
   let posts: any[] = [];
@@ -48,11 +48,11 @@ const Feed = async ({ username }: { username: string }) => {
     const ids = [userId, ...followingIds];
 
     posts = await prisma.post.findMany({
-      where: {
-        userId: {
-          in: ids,
-        },
-      },
+      // where: {
+      //   userId: {
+      //     in: ids,
+      //   },
+      // },
       include: {
         user: true,
         likes: {
