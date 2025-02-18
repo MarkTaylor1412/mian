@@ -14,7 +14,8 @@ import {
 import { DialogTitle } from "../ui/dialog";
 
 const Searchbar = () => {
-  
+
+  // const 
   
   const [open, setOpen] = useState(false);
 
@@ -55,6 +56,7 @@ const Searchbar = () => {
             <CommandItem>Georgia McKenzie</CommandItem>
             <CommandItem>Ricky Copeland</CommandItem>
             <CommandItem>Dora Daniels</CommandItem>
+            <CommandItem>user</CommandItem>
           </CommandGroup>
         </CommandList>
       </CommandDialog>

@@ -112,27 +112,27 @@ const CommentsList = ({
               
             </div>
 
-            <div className="flex-center flex-col gap-1">
+            <div className="flex-center flex-col gap-1 hover:opacity-100 opacity-0 transition-all">
               <Image
                 alt="Like"
                 src={"/like.svg"}
                 width={12}
                 height={12}
-                className="image-invert cursor-pointer"
+                className="image-invert cursor-pointer hover:scale-150"
               />
               <Image
                 alt="Reply"
                 src={"/reply.svg"}
                 width={12}
                 height={12}
-                className="image-invert cursor-pointer"
+                className="image-invert cursor-pointer hover:scale-150"
               />
               <Image
                 alt="Delete"
                 src={"/delete.svg"}
                 width={12}
                 height={12}
-                className="image-invert cursor-pointer"
+                className="image-invert cursor-pointer hover:scale-150"
               />
             </div>
           </div>
